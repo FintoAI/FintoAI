@@ -4,9 +4,10 @@ All bank integrations (GoCardless, Plaid, CSV imports, mocks) must
 implement this interface. The agent layer never talks to a provider
 directly — it talks to this contract.
 """
+
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import date
 from decimal import Decimal
 
 

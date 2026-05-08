@@ -12,6 +12,7 @@ Expected CSV schema (header row required):
   - amount: signed decimal. Negative = debit, positive = credit.
   - counterparty: optional, may be empty
 """
+
 from __future__ import annotations
 
 import csv
@@ -77,7 +78,8 @@ class CSVProvider(BankProvider):
                     account_id=self._account_id,
                     booking_date=txn_date,
                     amount=Decimal(row["amount"].strip()),
-                    currency=row.get("currency", self._currency).strip() or self._currency,
+                    currency=row.get("currency", self._currency).strip()
+                    or self._currency,
                     description=row["description"].strip(),
                     counterparty=(row.get("counterparty") or "").strip() or None,
                     raw=dict(row),

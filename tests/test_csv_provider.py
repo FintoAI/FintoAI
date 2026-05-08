@@ -74,7 +74,9 @@ def test_amounts_are_decimal_not_float():
 def test_unknown_account_id_returns_empty():
     provider = CSVProvider(FIXTURE)
     txns = asyncio.run(
-        provider.list_transactions("not_a_real_id", date(2026, 1, 1), date(2026, 12, 31))
+        provider.list_transactions(
+            "not_a_real_id", date(2026, 1, 1), date(2026, 12, 31)
+        )
     )
     assert txns == []
 

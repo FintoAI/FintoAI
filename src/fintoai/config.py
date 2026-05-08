@@ -3,6 +3,7 @@
 All config comes from environment variables, loaded from .env in development.
 Never hardcode secrets. Never log the Settings object.
 """
+
 from functools import lru_cache
 
 from pydantic import Field
@@ -25,9 +26,7 @@ class Settings(BaseSettings):
     anthropic_api_key: str = Field(default="", alias="ANTHROPIC_API_KEY")
 
     # Storage
-    database_url: str = Field(
-        default="sqlite:///./fintoai.db", alias="DATABASE_URL"
-    )
+    database_url: str = Field(default="sqlite:///./fintoai.db", alias="DATABASE_URL")
 
     # App
     log_level: str = Field(default="INFO", alias="LOG_LEVEL")
